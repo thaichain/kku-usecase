@@ -1,4 +1,4 @@
-# kku-Ballot
+# kku-Ballot / ethereum-supply-chain
 
 ## การ Deploy smart contract บน Binance Smart Chain
 
@@ -6,16 +6,17 @@
 
 ### การตั้งค่าเริ่มต้น
 
-1) เลือกใช้ Node version 8, 10, 12
+1) เลือกใช้ Node version 12.19.0 / Truffle v5.2.2
 
 2) เข้าไปยัง Directory ของโปรเจค เช่น<br />
 
-`cd ballot/`
-
+`cd voting/` หรือ
+`cd ethereum-supply-chain/`  <br />
 
 3) ติดตั้ง package ที่จำเป็นโดยพิมพ์คำสั่ง <br />
 
 `npm install` <br />
+
 
 ### การสร้าง Wallet เพื่อใช้ในการ Deploy smart contract
 
@@ -48,9 +49,9 @@
 
 1) เมื่อมีเหรียญอยู่ในกระเป๋าแล้ว เข้าไปยัง Directory ของโปรเจคที่ต้องการ เช่น<br />
 
-`cd ballot/` หรือ  <br />
+`cd voting/` หรือ  <br />
 `cd opencert-admin/` หรือ  <br />
-`cd supply-chain/` <br />
+`cd ethereum-supply-chain/` <br />
 <br />
 
 2) สร้าง และ/หรือ แก้ไข ไฟลล์ `.env` โดนการกรอก Private key ที่เพิ่งถูกสร้างขึ้นมา ตามรูป<br />
@@ -87,36 +88,28 @@
 7) หาก verify แล้วเราสามารถ interact กับ smart contract ได้ <br />
 ![](images/13_interact.png)
 
-# kku-supply-chain/opencert-admin
-
-
-### การตั้งค่าเริ่มต้น
-
-1) เลือกใช้ Node version 8, 10, 12
-
-2) เข้าไปยัง Directory ของโปรเจคที่ต้องการ เช่น<br />
-
-`cd supply-chain/` หรือ <br />
-`cd opencert-admin/`
-
-3) ติดตั้ง package ที่จำเป็นโดยพิมพ์คำสั่ง <br />
-
-`npm install` <br />
-
-4) ติดตั้ง  [Metamask Chrome Extension](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) <br />
-
-
-5) ติดตั้ง  [Ganache CLI/UI](https://www.trufflesuite.com/ganache) <br />
-
-
-6) เขื่อมต่อ Metamask กับ Ganache
-
-
 
 ### การใช้งาน
 
-1) พิมพ์คำสั่ง <br />
+1) ติดตั้ง  [Metamask Chrome Extension](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) <br />
+
+2) กด `Import Account` จากนั้นกรอก Private Key ที่สร้างมาจากขั้นตอนที่แล้ว จาก `/contracts/Ballot.sol`<br />
+
+![](images/14_import_key.png)
+
+
+3) กดเลือก Blockchain ที่ต้องการ Network จากนั้นกด `Custom Network` แล้วกรอก config ตามภาพ <br />
+
+![](images/15_choose_network.png)
+![](images/1ุุุ6_set_network.png)
+
+4) เข้าไปยัง client Directory  ของแต่ละโปรเจค เช่น<br />
+
+`cd ./voting/client` หรือ
+`cd ./ethereum-supply-chain/client`  <br />
+
+5) พิมพ์คำสั่ง <br />
 
 `npm run start` <br />
 
-2) ไปยัง `http://localhost/3000` <br />
+6) ไปยัง `http://localhost/3000` <br />
