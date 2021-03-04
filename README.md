@@ -113,3 +113,52 @@
 `npm run start` <br />
 
 6) ไปยัง `http://localhost/3000` <br />
+
+# Open-Cert Demo
+
+## Creating a wallet
+
+
+`open-attestation wallet create --output-file wallet.json --fund ropsten` <br />
+
+## Deploy
+
+`open-attestation deploy document-store "My first document store" --network ropsten --encrypted-wallet-path wallet.json` <br />
+
+## the document store address  Address
+
+`0xED4498Ea3282A09DC5e5BEc5332bBbCC64F457a3` <br />
+
+the document's issuer is bound to demo.openattestation.com
+
+We will be inserting a temporary DNS record on our DNS at sandbox.openattestation.com 
+
+`open-attestation dns txt-record create --address 0xED4498Ea3282A09DC5e5BEc5332bBbCC64F457a3 --network-id 3`<br /> <br />
+
+Record created at successful-jade-elephant.sandbox.openattestation.com
+
+## Creating Raw Documents
+
+raw-documents
+  |-- certificate-1.json
+  |-- certificate-2.json
+
+## Wrapping Documents
+
+`open-attestation wrap raw-documents --output-dir wrapped-documents` <br />
+
+## Issuing the documents
+
+`open-attestation document-store issue --address 0xED4498Ea3282A09DC5e5BEc5332bBbCC64F457a3 --hash cc138cc35dbaf944734c02a011670f7f8745f518650d6ed6cf7b8fb0f3889670 --network ropsten --encrypted-wallet-path wallet.json`<br />
+
+look at merkle root<br />
+
+## Verifying the documents
+
+[dev.opencerts.io](https://dev.opencerts.io) <br />
+
+[ dev.tradetrust.io](https://dev.tradetrust.io) <br />
+
+## Revoking a document
+
+`open-attestation document-store revoke --address 0x2f6d2e0016F67ba51eCe31c0727c626F87025416 --hash 164973aaef0e508dfed4981c5630a270e8e8aa677755ace6f944c2591899a49e --network ropsten --encrypted-wallet-path wallet.json `
